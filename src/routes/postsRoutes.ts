@@ -10,6 +10,13 @@ class PostRoutes {
         this.router = Router();
         this.routes();
     }
+
+    public async pruebajwl(req: Request, res: Response):Promise<void> {
+        const deteleposts = await post.findOneAndDelete({title:req.params.url});
+        res.json({response:'delete success'});
+    }
+
+
      // promise || void es el tipo de dato que va a retornar la funcion 
        /** await solo funciona para los async lo que hace es esperar la repuesta para continuar**/
     /** tambien se pueden utilizar una promesa**/
@@ -45,12 +52,17 @@ class PostRoutes {
         const deteleposts = await post.findOneAndDelete({title:req.params.url});
         res.json({response:'delete success'});
     }
+
+
+   
     routes() {
         this.router.get('/', this.getPosts);
         this.router.get('/:url', this.getOnePosts);
         this.router.post('/', this.createPosts);
         this.router.put('/:url', this.updtePost);
         this.router.delete('/:url', this.deletePost);
+        this.router.get('/pruebajwl', this.pruebajwl);
+
     }
 
 }
