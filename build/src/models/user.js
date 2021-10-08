@@ -10,7 +10,6 @@ const UserSchema = new mongoose_1.Schema({
     emial: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     username: { type: String, required: true },
-    token: String,
     createAt: { type: Date, default: Date.now },
     updateAt: { Date },
     posts: [{

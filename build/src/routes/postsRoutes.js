@@ -19,6 +19,11 @@ class PostRoutes {
         this.router = (0, express_1.Router)();
         this.routes();
     }
+    pruebajwl(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            res.json({ data: 'ssssssssssssssd' });
+        });
+    }
     // promise || void es el tipo de dato que va a retornar la funcion 
     /** await solo funciona para los async lo que hace es esperar la repuesta para continuar**/
     /** tambien se pueden utilizar una promesa**/
@@ -67,6 +72,7 @@ class PostRoutes {
         this.router.post('/', this.createPosts);
         this.router.put('/:url', this.updtePost);
         this.router.delete('/:url', this.deletePost);
+        this.router.get('/pruebajwl', this.pruebajwl);
     }
 }
 const postsRoutes = new PostRoutes();
